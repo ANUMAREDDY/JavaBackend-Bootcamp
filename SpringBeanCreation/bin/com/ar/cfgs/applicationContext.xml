@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  <bean id="p" class="com.ar.beans.Person">
+  <property name="id" value="1"></property>
+  <property name="name" value="anuma"></property>
+  <property name="score" value="981"></property>
+  </bean>
+  
+  <bean id="p1" class="com.ar.beans.Person">
+  <constructor-arg name="id" value="2"/>
+  <constructor-arg name="name" value="ajith"/>
+  <constructor-arg name="score" value="952"/>
+  </bean>
+  
+  
+  
+  
+  </beans>
+  
+  

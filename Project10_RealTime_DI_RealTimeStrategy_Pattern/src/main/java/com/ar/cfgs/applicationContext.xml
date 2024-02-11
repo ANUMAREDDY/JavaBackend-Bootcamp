@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  
+  <!-- DataSource cfgs -->
+<!--<bean id="dmds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${jdbc.driver}"/>
+    <property name="url" value="${jdbc.url}"/>
+    <property name="username" value="${db.username}"/>
+    <property name="password" value="${db.password}"/>
+</bean>-->
+<bean id="dmds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://localhost:3306/projects"/>
+    <property name="username" value="root"/>
+    <property name="password" value="root"/>
+</bean>
+<!--DAO class-->
+<bean id="customerdao" class="com.ar.DAO.CustomerDAOImpl">
+	<constructor-arg name="ds" ref="dmds"/>
+</bean>
+<!--Service class-->
+<bean id="customerservice" class="com.ar.service.CustomerServiceImpl">
+	<constructor-arg name="dao" ref="customerdao"/>
+</bean>
+<!--controller class-->
+<bean id="controller" class="com.ar.controller.MainController">
+	<constructor-arg name="service" ref="customerservice"/>
+</bean>
+
+<!--<context:property-placeholder location="classpath:com/ar/commons/jdbc.properties"/>-->
+
+  </beans>

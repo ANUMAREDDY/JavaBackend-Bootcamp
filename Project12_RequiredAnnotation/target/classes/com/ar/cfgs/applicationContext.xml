@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd">-->
+  <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <!--<bean id="elephant" class="com.ar.beans.Elephant">
+	  <property name="id" value="-1001"/>
+	  <property name="name" value="Anuma"/>
+	  <property name="group" value="advithri"/>
+	  <property name="area" value="cliffstoneway"/>
+	  Removing also works with full class name
+	  What if we have multiple classes:
+	  clash happens betweeen two same class then:
+	  class0 - is defaulty considered as zero
+	  class1- we must right #1 in the xml container when we are calling.
+  </bean>-->
+    <bean id="ele1" class="com.ar.beans.Elephant">
+	  <!--<property name="id" value="-1001"/>-->
+	  <property name="name" value="Anuma"/>
+	  <property name="group" value="advithri"/>
+	  <property name="area" value="cliffstoneway"/>
+  </bean>
+    
+     <context:annotation-config/>
+  
+  <!--<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+   For only @Required Annotation
+  <context:annotation-config/>
+  When we use this annotation we can create 7 objects using BeanPostProcessor-->
+  
+  
+  <!-- Story Board of annotationS:
+  1. Application context container is created.
+  2. This container already had location of cfgs file, this xml file parsed and checked 
+  wethaer it is valid(which it must be in the formt of XSD(XML Schema defination) and DTD(Document Type Defination).
+  3.<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+  <context:annotation-config/>, then if either of the tag found in xml file then it created the objects.
+  4. If the tag is 1, then it created 1 bean of @Required.
+  If the tag is2,hen it created 7 beans using the BeanPostProcessor.
+  5. Following that, it creates the bean which is provided by us and checks if any annotation is present the class
+  .E.g;@Required Annotation is present in the class the then it will be noted.
+  6. Now, it checks for the setter value that is defined on the bean in the ml file.
+  7. If present that would be smooth, otherwise it throws an error. Eventhough it throws  error if you hrd code the value of the field in the class.
+  Because it only considers the metadata of IOC container and checks only insie the container nd throws the error if it won't find it.-->
+  
+  
+  </beans>
